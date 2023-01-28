@@ -84,7 +84,7 @@ plugins=(git
 
 # User configuration
 
-# export MANPATH="/usr/local/man:$MANPATH"
+export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -129,10 +129,10 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # type this in terminal if tmux is already running
-# source ~/.tmux.conf
+#source ~/.tmux.conf
 
 
-source ~/fzf-git.sh/fzf-git.sh
+#source ~/fzf-git.sh/fzf-git.sh
   fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
   
 source ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -143,3 +143,6 @@ ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
 bindkey '^ ' autosuggest-accept
 
 alias ls="exa --icons"
+
+source ~/.zshrc_functions.sh
+
