@@ -144,5 +144,6 @@ bindkey '^ ' autosuggest-accept
 
 alias ls="exa --icons"
 
-source ~/.zshrc_functions.sh
+source ~/.zshrc_functions
 
+buscar() bind -x "bash source ~/localizar.sh"
