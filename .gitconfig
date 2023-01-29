@@ -1,0 +1,8 @@
+[user]
+	email = emailvitorvas@gmail.com
+	name = Reuben Vitor de Vasconcelos
+
+[credential]
+	helper = cache
+[url "git@github.com:"]
+	insteadOf = https://github.com/
