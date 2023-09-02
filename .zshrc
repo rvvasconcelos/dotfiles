@@ -1,15 +1,14 @@
 # If you come from bash you might have to change your $PATH.
- export PATH=$HOME/bin:/usr/local/bin:$PATH
- export PATH=/home/reuben/.local/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-ZSH=/usr/share/oh-my-zsh/
+export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="agnoster"
+ZSH_THEME="robbyrussell"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -26,7 +25,7 @@ ZSH_THEME="agnoster"
 
 # Uncomment one of the following lines to change the auto-update behavior
 # zstyle ':omz:update' mode disabled  # disable automatic updates
-zstyle ':omz:update' mode auto      # update automatically without asking
+# zstyle ':omz:update' mode auto      # update automatically without asking
 # zstyle ':omz:update' mode reminder  # just remind me to update when it's time
 
 # Uncomment the following line to change how often to auto-update (in days).
@@ -71,30 +70,22 @@ zstyle ':omz:update' mode auto      # update automatically without asking
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git
-        git ssh-agent
-        compleat
-        zsh-syntax-highlighting
-        zsh-autosuggestions
-        dirhistory
-        asdf
-        zsh-fzf-history-search
-        zsh-tmux-auto-title
-      )
+plugins=(git)
+
+source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-export MANPATH="/usr/local/man:$MANPATH"
+# export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
-export LANG=pt_BR.UTF-8
 
 # Preferred editor for local and remote sessions
  if [[ -n $SSH_CONNECTION ]]; then
-   export EDITOR='nvim'
+   export EDITOR='vim'
  else
-   export EDITOR='nvim'
+   export EDITOR='mvim'
  fi
 
 # Compilation flags
@@ -106,44 +97,12 @@ export LANG=pt_BR.UTF-8
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
- alias zshconfig="nvim ~/.zshrc"
- alias ohmyzsh="nvim ~/.oh-my-zsh"
- alias dir="exa --icons"
-
- alias keys="nvim ~/.config/nvim/keys/mappings.vim"
- 
-# alias vim="nvim"
- alias tsm="transmission-remote"
- alias v="nvim"
-
-ZSH_CACHE_DIR=$HOME/.cache/oh-my-zsh
-if [[ ! -d $ZSH_CACHE_DIR ]]; then
-  mkdir $ZSH_CACHE_DIR
-fi
-
-source $ZSH/oh-my-zsh.sh
-
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-# type this in terminal if tmux is already running
-#source ~/.tmux.conf
-
-
-#source ~/fzf-git.sh/fzf-git.sh
-  fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
-  
-source ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#ff00ff,bg=#000000,bold,underline"
-ZSH_AUTOSUGGEST_STRATEGY=(history completion)
-ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
-bindkey '^ ' autosuggest-accept
-
+alias zshconfig="nvim ~/.zshrc"
+alias ohmyzsh="nvim ~/.oh-my-zsh"
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /data/data/com.termux/files/home/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ./zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 alias ls="exa --icons"
-
-source ~/.zshrc_functions
-
-buscar() bind -x "bash source ~/localizar.sh"
+alias v="nvim"
+ssh-add ~/.ssh/id_ed25519
+ssh -T git@github.com
